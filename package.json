@@ -1,0 +1,50 @@
+{
+  "name": "ssr by hand",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build:prod": "cross-env BUILD_TARGET=client BUILD_TYPE=prod npm run build:client & cross-env BUILD_TARGET=server npm run build:server",
+    "build:dev": " cross-env BUILD_TARGET=client BUILD_TYPE=dev  npm run build:client & cross-env BUILD_TARGET=server npm run build:server",
+    "build:client": "cross-env cross-env BUILD_TARGET=client webpack --config webpackConfs/webpack.client.js ",
+    "build:server": "cross-env cross-env BUILD_TARGET=server webpack --config webpackConfs/webpack.server.js",
+    "start:server": "nodemon dist/server/main.js"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/react-redux": "^7.1.16",
+    "@types/react-router-dom": "^5.1.7",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.4.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.4.0",
+    "mini-css-extract-plugin": "^2.4.3",
+    "nodemon": "^2.0.7",
+    "null-loader": "^4.0.1",
+    "sass": "^1.43.2",
+    "sass-loader": "^12.2.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.17.1",
+    "normalize.css": "^8.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-masonry-css": "^1.0.16",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^6.3.0",
+    "react-select": "^5.4.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.4.1",
+    "swiper": "^8.3.2"
+  }
+}

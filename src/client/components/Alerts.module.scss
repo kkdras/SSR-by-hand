@@ -1,0 +1,29 @@
+.controlAlert{
+	position: fixed;
+	bottom: 0.75rem;
+	left: 0.75rem;
+	z-index: 10;
+	&__item{
+		box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+		display: flex;
+		height: 2.5rem;
+		box-sizing: border-box;
+		align-items: center;
+		width: 20rem;
+		border-radius: 10px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		padding: 0.5rem 1rem;
+		&:not(:last-child) {
+			margin: 0px 0px 0.5rem 0px;
+		};
+		color: white;
+		&.controlAlert__error{
+			background-color: rgb(211, 47, 47);
+		}
+		&.controlAlert__success{
+			background-color: rgb(56, 142, 60)
+		}
+	}
+}

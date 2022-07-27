@@ -1,0 +1,23 @@
+.loading{
+	width: 100%;
+	height: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	img {
+		width: 3rem;
+		height: 3rem;
+	}
+}
+
+.myMasonryGrid {
+	display: flex;
+	margin: 0 -0.75rem;
+	width: auto;
+	justify-content: center;
+}
+
+.myMasonryGrid_column {
+	width: auto !important;
+	max-width: 100% !important;
+}
