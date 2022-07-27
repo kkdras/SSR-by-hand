@@ -21,7 +21,7 @@ export let Car: FC<{ item: ICarItem }> = memo(({ item }) => {
 				slidesPerView={"auto"}
 				className={s.car__swiper}
 			>
-				{[...item.photobank.imgs, ...item.photobank.imgs].map(photoItem => <SwiperSlide>
+				{[...item.photobank.imgs, ...item.photobank.imgs].map((photoItem, i) => <SwiperSlide key={i}>
 					<img
 						src={
 							photoItem.url ||

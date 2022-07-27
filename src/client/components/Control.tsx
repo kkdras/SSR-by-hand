@@ -63,14 +63,14 @@ export let Control = () => {
 			styles={colorStyles}
 			isSearchable={false}
 		/>
-		<AlertManager>
+		{errorBrand || errorCars && <AlertManager>
 			{errorBrand && <Alert type="error">
 				{errorBrand}
 			</Alert>}
 			{errorCars && <Alert type="error">
 				{errorCars}
 			</Alert>}
-		</AlertManager>
+		</AlertManager>}
 	</div >
 }
 
