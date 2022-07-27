@@ -13,6 +13,14 @@ const app = express();
 
 app.use(express.static('dist'));
 
+let readFile = (path: string) => {
+    return new Promise((res, rej) => {
+        fs.readFile(path, { encoding: "utf-8" }, (err, data) => {
+            if (err) rej(err)
+            else res(data)
+        })
+    })
+}
 
 app.get('*', async (req, res) => {
     await store.dispatch(getCars())
@@ -26,13 +34,16 @@ app.get('*', async (req, res) => {
 
     let preloadedState = store.getState()
 
-    let indexHTML = fs.readFileSync(path.resolve(__dirname, "../", "client/index.html"), "utf8")
-    indexHTML = indexHTML.replace("<div id=\"root\"></div>", `<div id=\"root\">${content}</div>`)
-    indexHTML = indexHTML.replace(
-        "<!-- SERVER_STATE -->", `<script>window.SERVER_STATE = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}</script>`
-    )
-
-    res.send(indexHTML);
+    let indexHTML = await readFile(path.resolve(__dirname, "../", "client/index.html"))
+    if (typeof indexHTML === "string") {
+        let indexHTMLString = indexHTML.replace("<div id=\"root\"></div>", `<div id=\"root\">${content}</div>`) as string
+        indexHTMLString = indexHTMLString.replace(
+            "<!-- SERVER_STATE -->", `<script>window.SERVER_STATE = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}</script>`
+        ) as string
+        res.send(indexHTMLString);
+        return
+    }
+    res.status(500).send('Something error ocurred');
 });
 
 app.listen(3000, () => {
