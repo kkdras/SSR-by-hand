@@ -2,6 +2,7 @@ import React, { FC, memo } from "react"
 import { ICarItem } from "../packages/api/rest/cars";
 import s from "./Car.module.scss"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { Button } from "./Button";
 
 export let Car: FC<{ item: ICarItem }> = memo(({ item }) => {
 	let {
@@ -71,7 +72,7 @@ export let Car: FC<{ item: ICarItem }> = memo(({ item }) => {
 			{formatPrice(item.feedData.autoPrice)} <span>₽</span>
 		</div>
 		<div className={`${s.car__active} ${!noFactoryOptions?.packetAcc.length ? s.car__sm : ""}`}>
-			<button>купить</button>
+			<Button>купить</Button>
 		</div>
 	</div>
 })

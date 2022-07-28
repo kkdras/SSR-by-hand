@@ -1,0 +1,25 @@
+.button{
+	transition: all 0.3s ease 0s;
+	margin-left: auto;
+	background: transparent linear-gradient(252deg, #11998E 0%, #38EF7D 100%) 0% 0% no-repeat padding-box;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	max-width: 10rem;
+	overflow: hidden;
+	padding: 0.2rem;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 0.5rem;
+	height: 2.4rem;
+	min-width: 7.25rem;
+	border-radius: 0.4rem;
+	border: none;
+	cursor: pointer;
+	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.11);
+	@media (any-hover: hover){
+		&:hover{
+			box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.27);
+		}
+	}
+}

@@ -7,10 +7,10 @@ import "./styles/app.scss";
 
 export function App() {
     return (
-        <div className={s.app}>
+        <main className={s.app}>
             <Control />
             <Cars />
-        </div>
+        </main>
     );
 }
 
