@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start": "npm run start:server",
+    "build": "npm run build:prod",
     "build:prod": "cross-env BUILD_TARGET=client BUILD_TYPE=prod npm run build:client & cross-env BUILD_TARGET=server npm run build:server",
     "build:dev": " cross-env BUILD_TARGET=client BUILD_TYPE=dev  npm run build:client & cross-env BUILD_TARGET=server npm run build:server",
     "build:client": "cross-env cross-env BUILD_TARGET=client webpack --config webpackConfs/webpack.client.js ",
     "build:server": "cross-env cross-env BUILD_TARGET=server webpack --config webpackConfs/webpack.server.js",
-    "start:server": "nodemon dist/server/main.js"
+    "start:server": "node dist/server/main.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
