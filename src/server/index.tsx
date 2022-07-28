@@ -24,7 +24,7 @@ let readFile = (path: string) => {
     })
 }
 
-app.get('*', async (req, res) => {
+app.get('/', async (req, res) => {
     await store.dispatch(getCars())
 
 
@@ -47,6 +47,10 @@ app.get('*', async (req, res) => {
     }
     res.status(500).send('Something error ocurred');
 });
+
+app.get('*', (req, res) => {
+    res.status(404).send('this page doesn\'t exist')
+})
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port: ${PORT}`);
