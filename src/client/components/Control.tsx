@@ -32,7 +32,7 @@ export let Control = () => {
 
 	useEffect(() => {
 		if (errorBrand) {
-			let id = setTimeout(() => dispatch(actions.setBrandError(null)), 3000)
+			let id = setTimeout(() => dispatch(actions.setBrandError(null)), 2000)
 			console.log(errorBrand)
 			return () => {
 				dispatch(actions.setBrandError(null))
@@ -43,7 +43,7 @@ export let Control = () => {
 
 	useEffect(() => {
 		if (errorCars) {
-			let id = setTimeout(() => dispatch(actions.setCarsError(null)), 3000)
+			let id = setTimeout(() => dispatch(actions.setCarsError(null)), 2000)
 			console.log(errorCars)
 			return () => {
 				dispatch(actions.setCarsError(null))
@@ -54,7 +54,7 @@ export let Control = () => {
 
 	return <div className={s.control}>
 		<Select
-			isDisabled={pending || options.length < 2}
+			isDisabled={pending}
 			value={state}
 			onChange={handler}
 			hideSelectedOptions
@@ -63,7 +63,7 @@ export let Control = () => {
 			styles={colorStyles}
 			isSearchable={false}
 		/>
-		{errorBrand || errorCars && <AlertManager>
+		{(errorBrand || errorCars) && <AlertManager>
 			{errorBrand && <Alert type="error">
 				{errorBrand}
 			</Alert>}
@@ -99,11 +99,11 @@ const colorStyles: StylesConfig<{ value: string, label: string }> = {
 		return {
 			...styles,
 			color: "#FFFFFFDE",
-			backgroundColor: isSelected
+			backgroundColor: (isSelected
 				? "#666"
 				: isFocused
 					? "#333"
-					: styles.backgroundColor,
+					: styles.backgroundColor),
 			":active": {
 				color: "#FFFFFFDE"
 			}

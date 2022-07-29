@@ -1,7 +1,10 @@
 .controlAlert{
 	position: fixed;
-	bottom: 0.75rem;
-	left: 0.75rem;
+	left: 0;
+	bottom: 0;
+	padding: 0.75rem;
+	box-sizing: border-box;
+	width: 100%;
 	z-index: 10;
 	&__item{
 		box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -9,15 +12,18 @@
 		height: 2.5rem;
 		box-sizing: border-box;
 		align-items: center;
-		width: 20rem;
+		max-width: 20rem;
 		border-radius: 10px;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
 		padding: 0.5rem 1rem;
 		&:not(:last-child) {
 			margin: 0px 0px 0.5rem 0px;
 		};
+		div{
+			width: 100%;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
 		color: white;
 		&.controlAlert__error{
 			background-color: rgb(211, 47, 47);

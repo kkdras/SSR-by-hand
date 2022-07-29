@@ -40,6 +40,7 @@ export default (state = initialState, action: GeneralActionsType): IInitialState
 		case "APP/setBrandError":
 			return {
 				...state,
+				brand: null,
 				getBrandError: action.payload.error
 			}
 		case "APP/setCarsError":

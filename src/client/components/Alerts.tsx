@@ -11,7 +11,9 @@ export let Alert: FC<{ type: "error" | "success", children: React.ReactNode }> =
 	return <div
 		className={`${s.controlAlert__item} ${type === "error" ? s.controlAlert__error : type === "success" ? s.controlAlert__success : ''}`}
 	>
-		{children}
+		<div>
+			{children}
+		</div>
 	</div>
 })
 
